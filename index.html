@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seetha | Personal Site</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F5F2EC;
+      --text: #1A1A18;
+      --muted: #7A7A72;
+      --accent: #C8603A;
+      --card: #FFFFFF;
+      --border: #E2DDD6;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.5rem;
+    }
+
+    /* NAV */
+    nav {
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0 0;
+    }
+
+    nav .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    nav .links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      list-style: none;
+    }
+
+    nav .links a {
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    nav .links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      width: 100%;
+      max-width: 760px;
+      padding: 5rem 0 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero .tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 520px;
+      font-weight: 300;
+    }
+
+    .hero .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2.2rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.75rem 1.6rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .hero .cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* CARDS */
+    .section {
+      width: 100%;
+      max-width: 760px;
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1.4rem 1.2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    }
+
+    .card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* CONTACT */
+    .contact-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      width: 100%;
+      max-width: 760px;
+      padding: 2rem 0 3rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* FADE IN */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, .section, nav {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .section:nth-child(3) { animation-delay: 0.1s; }
+    .section:nth-child(4) { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">Seetha.</span>
+    <ul class="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <p class="tag">👋 Hello, I'm</p>
+    <h1>Seetha —<br>UI Designer &<br>Developer</h1>
+    <p>I build clean, thoughtful digital experiences. Based in Chennai, passionate about design systems, intuitive interfaces, and good coffee.</p>
+    <a href="#contact" class="cta">Get in touch →</a>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <p class="section-label">What I do</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>UI Design</h3>
+        <p>Designing interfaces that are both beautiful and intuitive for users.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Frontend Dev</h3>
+        <p>Building responsive, accessible websites with clean HTML, CSS & JS.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Prototyping</h3>
+        <p>Rapid prototypes and design systems to validate ideas quickly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <p class="section-label">Get in touch</p>
+    <div class="contact-row">
+      <a href="mailto:seetha@email.com" class="contact-pill">✉️ Email me</a>
+      <a href="https://linkedin.com" target="_blank" class="contact-pill">💼 LinkedIn</a>
+      <a href="https://github.com/Seetha1076-Ui" target="_blank" class="contact-pill">🐙 GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Seetha</span>
+    <span>Built with GitHub Pages</span>
+  </footer>
+
+</body>
+</html>
