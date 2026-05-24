@@ -1,8 +1,0 @@
-source "https://rubygems.org"
-
-gem "jekyll", "~> 4.2.2 but are truncated, so I need more context to pinpoint the exact issue.
-
-Here are the most common causes and how to fix them:
-
-1. **Jekyll Configuration Error** - Check your `_config.yml` file for"
-gem "jekyll-theme-minimal"
