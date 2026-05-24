@@ -1,3 +1,13 @@
 theme: jekyll-theme-minimal
 title: Seetha Portfolio
 description: Bookmark this for Portfolio updates
+author: Seetha
+github:
+  is_project_page: false
+lang: en
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
